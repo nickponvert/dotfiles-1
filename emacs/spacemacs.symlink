@@ -169,7 +169,7 @@ layers configuration."
   (setq org-default-notes-file "~/Dropbox/Todo/inbox.org")
   (setq org-todo-keywords '( (sequence "TODO" "NEXT" "DONE") ))
   (setq org-todo-keyword-faces '(("TODO" . "orange") ( "NEXT" . "red" )))
-  (setq multi-term-program "/bin/bash")
+  (setq multi-term-program "/bin/zsh")
   (global-prettify-symbols-mode 1)
 
   (add-hook 'python-mode-hook
