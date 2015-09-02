@@ -16,3 +16,8 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+alias getdata='/home/nick/Scripts/get_data.sh'
+alias returndata='/home/nick/Scripts/return_data.sh'
+
+alias fiji='~/Programming/Fiji_NoJRE/Fiji.app/ImageJ-linux64'

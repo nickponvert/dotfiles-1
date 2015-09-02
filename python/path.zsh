@@ -1,1 +1,1 @@
-export PYTHONPATH="$PYTHONPATH:~/src/"
+export PYTHONPATH="$PYTHONPATH:/home/nick/src/"

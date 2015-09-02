@@ -17,7 +17,7 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-      auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      git
@@ -70,12 +70,7 @@ before layers configuration."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-light
-                         spacemacs-dark
-                         solarized-light
-                         solarized-dark
-                         leuven
-                         monokai
-                         zenburn)
+                         spacemacs-dark)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -147,7 +142,7 @@ before layers configuration."
    ;; `current' or `nil'. Default is `all'
    dotspacemacs-highlight-delimiters 'all
    ;; If non nil advises quit functions to keep server open when quitting.
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
@@ -161,17 +156,28 @@ before layers configuration."
 
 (defun dotspacemacs/config ()
   "Configuration function.
- This function is called at the very end of Spacemacs initialization after
-layers configuration."
+  This function is called at the very end of Spacemacs initialization after
+  layers configuration."
   (push '("*Python*" :position bottom :height 20) popwin:special-display-config)
   (setq doc-view-resolution 400)
   (setq evil-want-fine-undo nil)
   (setq org-default-notes-file "~/Dropbox/Todo/inbox.org")
-  (setq org-todo-keywords '( (sequence "TODO" "NEXT" "DONE") ))
-  (setq org-todo-keyword-faces '(("TODO" . "orange") ( "NEXT" . "red" )))
   (setq multi-term-program "/bin/zsh")
   (global-prettify-symbols-mode 1)
 
+  (setq mouse-drag-copy-region t)
+  (setq org-default-notes-file "~/Dropbox/Todo/inbox.org")
+  (setq org-todo-keywords '((sequence "TODO" "NEXT" "TODAY" "DONE")))
+  (setq org-todo-keyword-faces '(("TODO" . "orange") ("TODAY" . "deep sky blue") ("NEXT" . "red")))
+  (setq org-agenda-files (list "~/Dropbox/Todo"))
+  (add-to-list 'org-agenda-files (expand-file-name "~/Dropbox/Todo/projects"))
+  (remove-duplicates org-agenda-files :test 'string=)
+
+  ;; scroll one line at a time (less "jumpy" than defaults) 
+  (setq mouse-wheel-scroll-amount '(1)) ;; one line at a time
+  (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+  (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+  (setq scroll-step 1) ;; keyboard scroll one line at a time
   (add-hook 'python-mode-hook
             (lambda ()
               (setq prettify-symbols-alist '(("lambda" . 955)))))
