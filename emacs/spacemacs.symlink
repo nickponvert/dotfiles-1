@@ -22,11 +22,15 @@
      emacs-lisp
      git
      python
+     deft
      eyebrowse
      themes-megapack
      ;; markdown
      org
+     latex
+     colors
      ess
+     games
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -77,7 +81,7 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Ubuntu Mono"
                                :size 15
                                :weight normal
                                :width normal
@@ -161,12 +165,14 @@ before layers configuration."
   This function is called at the very end of Spacemacs initialization after
   layers configuration."
   (push '("*Python*" :position bottom :height 20) popwin:special-display-config)
+
   (setq doc-view-resolution 400)
   (setq evil-want-fine-undo nil)
   (setq org-default-notes-file "~/Dropbox/Todo/inbox.org")
   (setq multi-term-program "/bin/zsh")
   (global-prettify-symbols-mode 1)
 
+  (global-auto-revert-mode t)
   (setq mouse-drag-copy-region t)
   (setq org-default-notes-file "~/Dropbox/Todo/inbox.org")
   (setq org-todo-keywords '((sequence "TODO" "NEXT" "TODAY" "DONE")))
@@ -184,6 +190,13 @@ before layers configuration."
             (lambda ()
               (setq prettify-symbols-alist '(("lambda" . 955)))))
 
+  ;;(setq colors-enable-nyancat-progress-bar t)
+  (add-hook 'python-mode-hook
+            (lambda ()
+              (setq python-shell-interpreter "python")
+              (setq anaconda-mode-server-script
+                    "/usr/local/lib/python2.7/site-packages/anaconda_mode.py")))
+  (setq deft-directory "~/Dropbox/deft")
   )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -199,10 +212,11 @@ before layers configuration."
  '(ahs-inhibit-face-list nil)
  '(ansi-color-names-vector
    ["#26292c" "#ff4a52" "#40b83e" "#f6f080" "#afc4db" "#dc8cc3" "#93e0e3" "#f8f8f8"])
- '(fci-rule-color "#202325")
+ '(fci-rule-color "#202325" t)
  '(org-agenda-files
    (quote
     ("~/Dropbox/Todo/projects/misc_lab_tasks.org" "~/Dropbox/Todo/projects/immigration_case.org" "~/Dropbox/Todo/projects/find_a_new_house.org" "~/Dropbox/Todo/projects/east_coast_trip.org" "~/Dropbox/Todo/projects/bills.org" "~/Dropbox/Todo/projects/R01data.org")))
+ '(paradox-github-token t)
  '(ring-bell-function (quote ignore) t)
  '(vc-annotate-background "#1f2124")
  '(vc-annotate-color-map
