@@ -75,8 +75,91 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-light
-                         spacemacs-dark)
+   dotspacemacs-themes '( afternoon
+			    alects
+			    ample
+			    ample-zen
+			    apropospriate
+			    anti-zenburn
+			    birds-of-paradise-plus
+			    bubbleberry
+			    busybee
+			    cherry-blossom
+			    clues
+			    color-sanityinc-solarized
+			    color-sanityinc-tomorrow
+			    colorsarenice
+			    cyberpunk
+			    dakrone
+			    darkburn
+			    darkmine
+			    darktooth
+			    django
+			    espresso
+			    firebelly
+			    flatland
+			    flatui
+			    gandalf
+			    gotham
+			    grandshell
+			    gruber-darker
+			    gruvbox
+			    hc-zenburn
+			    hemisu
+			    heroku
+			    inkpot
+			    ir-black
+			    jazz
+			    light-soap
+			    lush
+			    material
+			    minimal
+			    moe
+			    molokai
+			    monochrome
+			    mustang
+			    naquadah
+			    niflheim
+			    noctilux
+			    obsidian
+			    occidental
+			    oldlace
+			    organic-green
+			    pastels-on-dark
+			    phoenix-dark-mono
+			    phoenix-dark-pink
+			    planet
+			    professional
+			    purple-haze
+			    reverse
+			    seti
+			    smyx
+			    soft-charcoal
+			    soft-morning
+			    soft-stone
+			    soothe
+			    spacegray
+			    stekene
+			    subatomic
+			    subatomic256
+			    sublimes
+			    sunny-day
+			    tango-2
+			    tango-plus
+			    tangotango
+			    tao
+			    toxi
+			    tronesque
+			    twilight-anti-bright
+			    twilight-bright
+			    twilight
+			    ujelly
+			    underwater
+			    zen-and-art
+			    zenburn
+			    zonokai)
+
+
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -197,6 +280,10 @@ before layers configuration."
               (setq anaconda-mode-server-script
                     "/usr/local/lib/python2.7/site-packages/anaconda_mode.py")))
   (setq deft-directory "~/Dropbox/deft")
+
+  (setq-default dotspacemacs-configuration-layers '((ess :variables
+                                                         ess-enable-smart-equals t)))
+
   )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -210,14 +297,25 @@ before layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#26292c" "#ff4a52" "#40b83e" "#f6f080" "#afc4db" "#dc8cc3" "#93e0e3" "#f8f8f8"])
+ '(custom-safe-themes
+   (quote
+    ("0a1a7f64f8785ffbf5b5fbe8bca1ee1d9e1fb5e505ad9a0f184499fe6747c1af" default)))
  '(fci-rule-color "#202325" t)
+ '(hl-paren-background-colors (quote ("#2492db" "#95a5a6" nil)))
+ '(hl-paren-colors (quote ("#ecf0f1" "#ecf0f1" "#c0392b")))
  '(org-agenda-files
    (quote
-    ("~/Dropbox/Todo/projects/misc_lab_tasks.org" "~/Dropbox/Todo/projects/immigration_case.org" "~/Dropbox/Todo/projects/find_a_new_house.org" "~/Dropbox/Todo/projects/east_coast_trip.org" "~/Dropbox/Todo/projects/bills.org" "~/Dropbox/Todo/projects/R01data.org")))
+    ("~/Dropbox/Todo/projects/misc_lab_tasks.org" "~/Dropbox/Todo/projects/immigration_case.org" "~/Dropbox/Todo/projects/find_a_new_house.org" "~/Dropbox/Todo/projects/east_coast_trip.org" "~/Dropbox/Todo/projects/bills.org" "~/Dropbox/Todo/projects/R01data.org")) t)
  '(paradox-github-token t)
  '(ring-bell-function (quote ignore) t)
+ '(sml/active-background-color "#34495e")
+ '(sml/active-foreground-color "#ecf0f1")
+ '(sml/inactive-background-color "#dfe4ea")
+ '(sml/inactive-foreground-color "#34495e")
  '(vc-annotate-background "#1f2124")
  '(vc-annotate-color-map
    (quote
@@ -245,5 +343,6 @@ before layers configuration."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Ubuntu Mono" :foundry "unknown" :slant normal :weight normal :height 113 :width normal))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
