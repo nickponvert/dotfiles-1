@@ -75,89 +75,10 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '( afternoon
-			    alects
-			    ample
-			    ample-zen
-			    apropospriate
-			    anti-zenburn
-			    birds-of-paradise-plus
-			    bubbleberry
-			    busybee
-			    cherry-blossom
-			    clues
-			    color-sanityinc-solarized
-			    color-sanityinc-tomorrow
-			    colorsarenice
-			    cyberpunk
-			    dakrone
-			    darkburn
-			    darkmine
-			    darktooth
-			    django
-			    espresso
-			    firebelly
-			    flatland
-			    flatui
-			    gandalf
-			    gotham
-			    grandshell
-			    gruber-darker
-			    gruvbox
-			    hc-zenburn
-			    hemisu
-			    heroku
-			    inkpot
-			    ir-black
-			    jazz
-			    light-soap
-			    lush
-			    material
-			    minimal
-			    moe
-			    molokai
-			    monochrome
-			    mustang
-			    naquadah
-			    niflheim
-			    noctilux
-			    obsidian
-			    occidental
-			    oldlace
-			    organic-green
-			    pastels-on-dark
-			    phoenix-dark-mono
-			    phoenix-dark-pink
-			    planet
-			    professional
-			    purple-haze
-			    reverse
-			    seti
-			    smyx
-			    soft-charcoal
-			    soft-morning
-			    soft-stone
-			    soothe
-			    spacegray
-			    stekene
-			    subatomic
-			    subatomic256
-			    sublimes
-			    sunny-day
-			    tango-2
-			    tango-plus
-			    tangotango
-			    tao
-			    toxi
-			    tronesque
-			    twilight-anti-bright
-			    twilight-bright
-			    twilight
-			    ujelly
-			    underwater
-			    zen-and-art
-			    zenburn
-			    zonokai)
+   dotspacemacs-themes '(
+                         spacemacs-dark
+                         spacemacs-light
+			    )
 
 
    ;; If non nil the cursor color matches the state color.
@@ -168,7 +89,7 @@ before layers configuration."
                                :size 15
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.3)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -247,7 +168,8 @@ before layers configuration."
   "Configuration function.
   This function is called at the very end of Spacemacs initialization after
   layers configuration."
-  (push '("*Python*" :position bottom :height 20) popwin:special-display-config)
+  ;; (push '("*Python*" :position bottom :height 20) popwin:special-display-config)
+  (setq powerline-default-separator 'slant)
 
   (setq doc-view-resolution 400)
   (setq evil-want-fine-undo nil)
